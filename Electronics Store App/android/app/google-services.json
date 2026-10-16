@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "451257138244",
+    "project_id": "electrical-store-app-4135e",
+    "storage_bucket": "electrical-store-app-4135e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451257138244:android:5b144d4968e05735b7d011",
+        "android_client_info": {
+          "package_name": "com.example.electrical_store_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3Fdf-V-FOLjg2DiVpaNnWlJn4sRNQuEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
