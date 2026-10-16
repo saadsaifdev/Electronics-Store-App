@@ -1,4 +1,4 @@
-import 'package:electrical_store_app/firebase_options.dart'; // 👈 تمت إضافة هذا السطر
+import 'package:electrical_store_app/firebase_options.dart';
 import 'package:electrical_store_app/services/cart_controller.dart';
 import 'package:electrical_store_app/services/cart_scope.dart';
 import 'package:electrical_store_app/views/cart_screen.dart';
@@ -11,8 +11,6 @@ import 'package:electrical_store_app/views/search_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-final CartController _cartController = CartController();
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -21,8 +19,21 @@ void main() async {
   runApp(const ElectricalStoreApp());
 }
 
-class ElectricalStoreApp extends StatelessWidget {
+class ElectricalStoreApp extends StatefulWidget {
   const ElectricalStoreApp({super.key});
+
+  @override
+  State<ElectricalStoreApp> createState() => _ElectricalStoreAppState();
+}
+
+class _ElectricalStoreAppState extends State<ElectricalStoreApp> {
+  late final CartController _cartController = CartController();
+
+  @override
+  void dispose() {
+    _cartController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const kPrimaryColor = Color(0xFF2B475E);
 const kAccentColor = Color(0xFF00897B);
 
-const String kAppTitle = 'Saad Electro'; 
+const String kAppTitle = 'Saad Electro';
 const String kLogo = 'https://cdn-icons-png.flaticon.com/512/3081/3081559.png';
 
 const kFontPacifico = 'Pacifico';

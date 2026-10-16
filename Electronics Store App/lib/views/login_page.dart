@@ -1,4 +1,5 @@
 import 'package:electrical_store_app/constants.dart';
+import 'package:electrical_store_app/helper/show_snack_bar.dart';
 import 'package:electrical_store_app/views/home_view.dart';
 import 'package:electrical_store_app/views/register_view.dart';
 import 'package:electrical_store_app/widgets/custom_button.dart';
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 25),
-                    CustomButon(
+                    CustomButton(
                       onTap: () async {
                         await handleLogin();
                       },
@@ -210,11 +211,5 @@ class _LoginPageState extends State<LoginPage> {
       email: email!,
       password: password!,
     );
-  }
-
-  void showSnackBar(BuildContext context, String message) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }

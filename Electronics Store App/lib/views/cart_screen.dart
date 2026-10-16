@@ -11,6 +11,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = CartScope.of(context);
+    final items = cart.items;
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFB),
       appBar: AppBar(
@@ -20,17 +21,17 @@ class CartScreen extends StatelessWidget {
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black87),
       ),
-      body: cart.items.isEmpty
+      body: items.isEmpty
           ? const _EmptyCart()
           : Column(
               children: [
                 Expanded(
                   child: ListView.separated(
                     padding: const EdgeInsets.all(16),
-                    itemCount: cart.items.length,
+                    itemCount: items.length,
                     separatorBuilder: (_, _) => const SizedBox(height: 12),
                     itemBuilder: (context, index) =>
-                        _CartProductCard(item: cart.items[index], cart: cart),
+                        _CartProductCard(item: items[index], cart: cart),
                   ),
                 ),
                 _CartSummary(cart: cart),

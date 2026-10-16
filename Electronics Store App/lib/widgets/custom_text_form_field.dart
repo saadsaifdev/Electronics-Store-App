@@ -20,7 +20,8 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
-      validator: validator ??
+      validator:
+          validator ??
           (data) {
             if (data == null || data.isEmpty) {
               return "Field is required";
@@ -31,24 +32,16 @@ class CustomTextFormField extends StatelessWidget {
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: Colors.white60,
-        ),
+        hintStyle: const TextStyle(color: Colors.white60),
         suffixIcon: suffixIcon,
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
+          borderSide: BorderSide(color: Colors.white),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
+          borderSide: BorderSide(color: Colors.white),
         ),
         border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
+          borderSide: BorderSide(color: Colors.white),
         ),
       ),
     );

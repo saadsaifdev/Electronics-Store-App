@@ -10,7 +10,12 @@ class CartScope extends InheritedNotifier<CartController> {
 
   static CartController of(BuildContext context) {
     final scope = context.dependOnInheritedWidgetOfExactType<CartScope>();
-    assert(scope != null, 'CartScope is missing above this context.');
-    return scope!.notifier!;
+    if (scope?.notifier case final controller?) return controller;
+    throw FlutterError.fromParts([
+      ErrorSummary('CartScope.of() called with no CartScope in the context.'),
+      ErrorDescription(
+        'Add a CartScope above this context to access the cart controller.',
+      ),
+    ]);
   }
 }

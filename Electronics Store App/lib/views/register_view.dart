@@ -1,4 +1,5 @@
 import 'package:electrical_store_app/constants.dart';
+import 'package:electrical_store_app/helper/show_snack_bar.dart';
 import 'package:electrical_store_app/views/home_view.dart';
 import 'package:electrical_store_app/widgets/custom_button.dart';
 import 'package:electrical_store_app/widgets/custom_text_form_field.dart';
@@ -51,7 +52,9 @@ class _RegisterViewState extends State<RegisterView> {
                         return const SizedBox(
                           height: 100,
                           child: Center(
-                            child: CircularProgressIndicator(color: Colors.white),
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
                           ),
                         );
                       },
@@ -67,10 +70,7 @@ class _RegisterViewState extends State<RegisterView> {
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          kAppTitle,
-                          style: kPacificoAuthTitleStyle,
-                        ),
+                        Text(kAppTitle, style: kPacificoAuthTitleStyle),
                       ],
                     ),
                     const SizedBox(height: 60),
@@ -97,7 +97,9 @@ class _RegisterViewState extends State<RegisterView> {
                         if (data == null || data.isEmpty) {
                           return "Email is required";
                         }
-                        bool isEmailValid = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(data);
+                        bool isEmailValid = RegExp(
+                          r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                        ).hasMatch(data);
                         if (!isEmailValid) {
                           return "Please enter a valid email format";
                         }
@@ -114,7 +116,9 @@ class _RegisterViewState extends State<RegisterView> {
                       },
                       suffixIcon: IconButton(
                         icon: Icon(
-                          isPasswordHidden ? Icons.visibility_off : Icons.visibility,
+                          isPasswordHidden
+                              ? Icons.visibility_off
+                              : Icons.visibility,
                           color: Colors.white,
                         ),
                         onPressed: () {
@@ -125,7 +129,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                     ),
                     const SizedBox(height: 25),
-                    CustomButon(
+                    CustomButton(
                       onTap: () async {
                         await handleRegister();
                       },
@@ -151,7 +155,7 @@ class _RegisterViewState extends State<RegisterView> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     const SizedBox(height: 50),
@@ -206,14 +210,6 @@ class _RegisterViewState extends State<RegisterView> {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email!,
       password: password!,
-    );
-  }
-
-  void showSnackBar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
     );
   }
 }
